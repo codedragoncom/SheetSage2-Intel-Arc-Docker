@@ -1,0 +1,12 @@
+# Local graft index and generated model outputs.
+/graft/
+/output/
+/input/
+
+# Local Python environments and Hugging Face cache.
+.venv*/
+.cache/
+
+# Python bytecode.
+__pycache__/
+*.py[cod]

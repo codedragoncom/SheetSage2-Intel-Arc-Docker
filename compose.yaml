@@ -1,0 +1,16 @@
+services:
+  sheetsage2:
+    build: .
+    devices:
+      - /dev/dri:/dev/dri
+    environment:
+      MODEL_DIR: /models/SheetSage2
+      HF_HOME: /cache/huggingface
+    volumes:
+      - /srv/data/models/music/sheetsage2:/models:ro
+      - ${INPUT_DIR:-.}:/input:ro
+      - ./output:/output
+      - huggingface-cache:/cache
+
+volumes:
+  huggingface-cache:
