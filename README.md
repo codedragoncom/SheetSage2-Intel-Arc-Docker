@@ -44,8 +44,8 @@ Review the license terms on the model pages before use.
 ## Run with Docker Compose
 
 The supplied Compose file mounts the model directory read-only at
-`/models/SheetSage2`, mounts the current directory at `/input`, writes results
-to `./output`, and persists the Hugging Face cache in a named volume. If your
+`/models/SheetSage2`, mounts `./input` at `/input`, writes results to
+`./output`, and persists the Hugging Face cache in a named volume. If your
 model snapshot is elsewhere, update the model volume in `compose.yaml`.
 
 Build the image:
@@ -54,10 +54,10 @@ Build the image:
 docker compose build
 ```
 
-Run inference on an audio file in the current directory:
+Place audio files in `input/`, then run inference:
 
 ```bash
-docker compose run --rm sheetsage2 /input/song.mp3
+docker compose run --rm sheetsage2 /input/heavy.mp3
 ```
 
 The Docker entrypoint supplies the model path, `xpu` device, `bf16` dtype,
